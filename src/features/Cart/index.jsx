@@ -5,7 +5,6 @@ const Cart = () => {
   return (
     <main className="cart">
       <div className="cart__flex container">
-        <h1>cart</h1>
         <CartList />
         <CartInfo />
       </div>
