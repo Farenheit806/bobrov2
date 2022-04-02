@@ -1,0 +1,25 @@
+@import "/src/vars.scss";
+
+.header {
+  background-color: $primary-bg;
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  .cart-btn {
+    align-self: center;
+  }
+  nav {
+    flex-grow: 1;
+    ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      padding: 10px;
+    }
+  }
+}

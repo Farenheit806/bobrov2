@@ -1,0 +1,9 @@
+@import "/src/vars.scss";
+
+.footer {
+  background-color: $primary-bg;
+  color: white;
+  padding: 50px;
+  align-items: center;
+  display: flex;
+}

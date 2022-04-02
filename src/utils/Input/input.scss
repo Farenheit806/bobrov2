@@ -1,0 +1,10 @@
+.primary-search {
+  padding: 10px 30px 10px 15px;
+  border: none;
+  border-bottom: 2px solid black;
+  width: 150px;
+  &:focus {
+    outline: none;
+    background-color: rgb(243, 243, 243);
+  }
+}

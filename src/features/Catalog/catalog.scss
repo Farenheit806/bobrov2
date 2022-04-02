@@ -1,0 +1,179 @@
+@import "/src/vars.scss";
+
+.catalog {
+  &__header {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .filters {
+      display: flex;
+      gap: 10px;
+      margin-right: 2rem;
+      select {
+        color: red;
+        appearance: none;
+        border: none;
+        outline: none;
+        width: 100px;
+        font-size: inherit;
+        font-family: inherit;
+        cursor: pointer;
+        & option {
+          color: black;
+        }
+      }
+    }
+  }
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    gap: 10px;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 10px;
+      font-size: 1.3em;
+      li {
+        cursor: pointer;
+        color: $primary-bg;
+        &:hover {
+          color: black;
+        }
+      }
+    }
+    .current-page {
+      color: red;
+      &:hover {
+        cursor: default;
+        color: red;
+      }
+    }
+    .page-arrow {
+      align-self: flex-start;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: $primary-bg;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+.no-matches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 0 40px;
+}
+
+.cont {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  .search {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background: $primary-bg;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      margin: auto;
+      top: 20px;
+      right: 0;
+      bottom: 0;
+      left: 20px;
+      width: 12px;
+      height: 2px;
+      background: white;
+      transform: rotate(45deg);
+      transition: all 0.5s;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      margin: auto;
+      top: -5px;
+      right: 0;
+      bottom: 0;
+      left: -5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid white;
+      transition: all 0.5s;
+    }
+  }
+  input {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border: none;
+    background: $primary-bg;
+    color: white;
+    padding: 0 80px 0 20px;
+    border-radius: 30px;
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus {
+      width: 180px;
+      opacity: 1;
+      cursor: text;
+    }
+    &:focus ~ .search {
+      right: -250px;
+      background: #151515;
+      z-index: 6;
+      &::before {
+        top: 0;
+        left: 0;
+        width: 20px;
+      }
+      &::after {
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 2px;
+        border: none;
+        background: white;
+        border-radius: 0%;
+        transform: rotate(-45deg);
+      }
+    }
+    &::placeholder {
+      color: white;
+      opacity: 0.5;
+      font-weight: bolder;
+    }
+  }
+}
