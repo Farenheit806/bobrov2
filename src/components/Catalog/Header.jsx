@@ -1,26 +1,38 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { setSearch } from "../../app/slices/catalogSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectSearchValue,
+  setSearch,
+  updateSearch,
+} from "../../app/slices/catalogSlice";
 import { Sort } from "./Sort";
 
 export const Header = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [isOpen, setIsOpen] = useState();
   const dispatch = useDispatch();
-  const onChange = (event) => {
+  const handleSearch = (event) => {
     setSearchValue(event.target.value);
   };
-  const [isOpen, setIsOpen] = useState();
 
   const handleClear = () => {
     if (isOpen) {
-      setSearchValue("");
+      if (searchValue !== "") {
+        setSearchValue("");
+        dispatch(setSearch(""));
+      }
       setIsOpen(false);
     } else {
       setIsOpen(true);
     }
   };
   useEffect(() => {
-    dispatch(setSearch(searchValue));
+    let timeout = setTimeout(() => {
+      dispatch(setSearch(searchValue));
+    }, 1500);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [searchValue]);
   return (
     <section className="catalog__header">
@@ -29,7 +41,7 @@ export const Header = () => {
           <input
             type="text"
             placeholder="Search..."
-            onChange={onChange}
+            onChange={handleSearch}
             onClick={handleClear}
             value={searchValue}
             title={isOpen ? "Search resets when closing" : "Search"}

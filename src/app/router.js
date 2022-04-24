@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
-import Home from "../features/Home";
-import About from "../features/About";
-import News from "../features/News";
-import Catalog from "../features/Catalog";
-import Cart from "../features/Cart";
+import Home from "../components/Home";
+import About from "../components/About";
+import News from "../components/News";
+import Catalog from "../components/Catalog";
+import Cart from "../components/Cart";
 
 const Router = () => (
   <Routes>

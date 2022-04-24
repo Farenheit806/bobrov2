@@ -74,13 +74,14 @@ const catalogSlice = createSlice({
     },
   },
 });
-
+// export const updateSearch = (value) => (dispatch, getState) => {
+//   dispatch(setSearch(value));
+// };
 export const {
   getPages,
   setSearch,
   showContent,
   setPageToShow,
-
   setFilter,
   setPageWithArrow,
 } = catalogSlice.actions;

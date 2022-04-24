@@ -14,11 +14,30 @@
     flex-direction: column;
     gap: 20px;
   }
+  &__item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    max-height: 250px;
+    overflow-y: auto;
+  }
   &__info {
     background-color: lightgray;
     display: flex;
     flex-direction: column;
     gap: 30px;
     padding: 40px 50px;
+  }
+  &__item {
+    width: 500px;
+    padding-right: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
